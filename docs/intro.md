@@ -25,7 +25,7 @@ slug: /
 
 ### 工程与项目
 
-- [后端框架与中间件](/docs/backend-frameworks)：MyBatis、Sentinel、Netty 等历史笔记。
+- [后端框架与中间件](/docs/backend-frameworks)：MyBatis、Sentinel、Netty 等框架与中间件资料。
 - [业务系统设计](/docs/business-systems)：支付、支付网关、异步通知、认证鉴权。
 - [线上排查](/docs/troubleshooting)：Full GC、OOM、CPU100% 等故障处理路径。
 - [架构设计](/docs/architecture)：设计方法论、系统设计、设计原则和设计模式。
