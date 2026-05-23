@@ -1,11 +1,11 @@
 const lightCodeTheme = require('prism-react-renderer').themes.github;
 const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 
-const repository = process.env.GITHUB_REPOSITORY || 'zhanglong/java-backend-knowledge-blog';
+const repository = process.env.GITHUB_REPOSITORY || 'longzhang0314/knowledge-blog';
 const [owner, repoName] = repository.split('/');
 const isUserPage = repoName && repoName.endsWith('.github.io');
-const siteUrl = process.env.SITE_URL || `https://${owner || 'your-github-username'}.github.io`;
-const baseUrl = process.env.BASE_URL || (isUserPage ? '/' : `/${repoName || 'java-backend-knowledge-blog'}/`);
+const siteUrl = process.env.SITE_URL || `https://${owner || 'longzhang0314'}.github.io`;
+const baseUrl = process.env.BASE_URL || (isUserPage ? '/' : `/${repoName || 'knowledge-blog'}/`);
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -15,8 +15,8 @@ const config = {
 
   url: siteUrl,
   baseUrl,
-  organizationName: owner || 'zhanglong',
-  projectName: repoName || 'java-backend-knowledge-blog',
+  organizationName: owner || 'longzhang0314',
+  projectName: repoName || 'knowledge-blog',
   trailingSlash: false,
 
   onBrokenLinks: 'warn',
@@ -178,7 +178,7 @@ const config = {
         {
           title: '联系',
           items: [
-            {label: 'GitHub', href: `https://github.com/${owner || 'your-github-username'}`},
+            {label: 'GitHub', href: `https://github.com/${repository}`},
           ],
         },
       ],

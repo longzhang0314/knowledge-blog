@@ -35,4 +35,4 @@ git push origin main
 
 推送到 `main` 后，GitHub Actions 会自动构建并发布到 GitHub Pages。
 
-如果仓库名不是 `java-backend-knowledge-blog`，构建脚本会根据 `GITHUB_REPOSITORY` 自动计算 `baseUrl`。
+当前默认发布仓库为 `longzhang0314/knowledge-blog`，GitHub Pages 地址会使用 `/knowledge-blog/` 作为访问前缀。

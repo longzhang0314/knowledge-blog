@@ -11,7 +11,7 @@ const portIndex = args.findIndex((arg) => arg === '--port' || arg === '-p');
 const portValue = portIndex >= 0 ? args[portIndex + 1] : args.find((arg) => arg.startsWith('--port='))?.split('=')[1];
 const port = Number(process.env.PORT || portValue || 3000);
 const host = process.env.HOST || '127.0.0.1';
-const baseUrl = process.env.BASE_URL || '/java-backend-knowledge-blog/';
+const baseUrl = process.env.BASE_URL || '/knowledge-blog/';
 
 const types = new Map([
   ['.css', 'text/css; charset=utf-8'],
