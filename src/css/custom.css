@@ -317,6 +317,229 @@ html {
   --ifm-button-color: var(--ifm-color-primary);
 }
 
+.navbar {
+  border-bottom: 1px solid var(--page-line);
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(18px);
+  box-shadow: none;
+}
+
+[data-theme='dark'] .navbar {
+  background: rgba(15, 17, 21, 0.9);
+}
+
+.navbar__brand {
+  margin-right: 1.4rem;
+}
+
+.navbar__title,
+.navbar__link {
+  color: var(--page-ink);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: var(--ifm-color-primary);
+}
+
+.DocSearch-Button,
+.navbar-sidebar,
+.dropdown__menu {
+  border: 1px solid var(--page-line);
+  border-radius: 8px;
+  background: var(--page-paper);
+  box-shadow: var(--page-shadow);
+}
+
+.DocSearch-Button {
+  height: 38px;
+}
+
+main {
+  background: var(--ifm-background-color);
+}
+
+.theme-doc-markdown,
+.theme-doc-version-banner,
+article.margin-bottom--xl {
+  border: 1px solid var(--page-line);
+  border-radius: 8px;
+  background: var(--page-paper);
+}
+
+.theme-doc-markdown,
+article.margin-bottom--xl {
+  padding: clamp(18px, 2vw, 30px);
+}
+
+.markdown {
+  color: var(--page-ink);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  color: var(--page-ink);
+  letter-spacing: 0;
+}
+
+.markdown h1:first-child {
+  margin-bottom: 1.4rem;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.12;
+}
+
+.markdown h2 {
+  margin-top: 2.8rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--page-line);
+}
+
+.markdown p,
+.markdown li {
+  color: var(--page-muted);
+}
+
+.markdown strong,
+.markdown b {
+  color: var(--page-ink);
+}
+
+.markdown a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.markdown blockquote {
+  border-left: 3px solid var(--ifm-color-primary);
+  color: var(--page-muted);
+  background: var(--page-fog);
+}
+
+.markdown table {
+  display: table;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--page-line);
+  border-radius: 8px;
+  background: var(--page-paper);
+}
+
+.markdown thead {
+  background: var(--page-fog);
+}
+
+.theme-code-block,
+.admonition,
+.pagination-nav__link,
+.card {
+  overflow: hidden;
+  border: 1px solid var(--page-line);
+  border-radius: 8px;
+  background: var(--page-paper);
+  box-shadow: none;
+}
+
+.theme-code-block {
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.05);
+}
+
+.pagination-nav__label {
+  color: var(--page-ink);
+  letter-spacing: 0;
+}
+
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--page-line);
+  background: var(--ifm-background-color);
+}
+
+.menu {
+  padding: 0.8rem;
+}
+
+.menu__link {
+  border-radius: 6px;
+  color: var(--page-muted);
+  line-height: 1.55;
+}
+
+.menu__link:hover {
+  color: var(--page-ink);
+  background: var(--page-fog);
+}
+
+.menu__link--active,
+.menu__list-item-collapsible--active {
+  color: var(--ifm-color-primary);
+  background: var(--page-red-soft);
+  font-weight: 700;
+}
+
+.table-of-contents {
+  border-left: 1px solid var(--page-line);
+  font-size: 0.88rem;
+}
+
+.table-of-contents__link {
+  color: var(--page-muted);
+}
+
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: var(--ifm-color-primary);
+}
+
+.theme-blog-list-page article,
+.theme-blog-post-page article {
+  border: 1px solid var(--page-line);
+  border-radius: 8px;
+  background: var(--page-paper);
+}
+
+.theme-blog-list-page article {
+  padding: clamp(18px, 2vw, 28px);
+}
+
+.footer {
+  border-top: 1px solid var(--page-line);
+  background: #17191f;
+}
+
+.footer__title {
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.footer__link-item {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.footer__link-item:hover {
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(180, 35, 44, 0.48);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
 @media (max-width: 996px) {
   .heroPanel,
   .profileStrip {
@@ -340,6 +563,12 @@ html {
 
   .stackWall {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .theme-doc-markdown,
+  article.margin-bottom--xl,
+  .theme-blog-list-page article {
+    padding: 18px;
   }
 }
 
