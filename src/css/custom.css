@@ -67,6 +67,7 @@ html {
 
 .heroPanel__content {
   max-width: 780px;
+  min-width: 0;
 }
 
 .eyebrow {
@@ -86,6 +87,7 @@ html {
   font-weight: 700;
   line-height: 1.02;
   letter-spacing: 0;
+  overflow-wrap: anywhere;
 }
 
 .heroPanel__lead {
@@ -94,6 +96,7 @@ html {
   color: var(--page-muted);
   font-size: 1.18rem;
   line-height: 1.9;
+  overflow-wrap: anywhere;
 }
 
 .heroPanel__actions {
@@ -314,6 +317,17 @@ html {
 .button--secondary:hover {
   --ifm-button-background-color: var(--page-paper);
   --ifm-button-border-color: rgba(180, 35, 44, 0.36);
+  --ifm-button-color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .button--secondary {
+  --ifm-button-border-color: rgba(226, 232, 240, 0.22);
+  --ifm-button-color: var(--page-ink);
+}
+
+[data-theme='dark'] .button--secondary:hover {
+  --ifm-button-background-color: rgba(255, 141, 148, 0.12);
+  --ifm-button-border-color: rgba(255, 141, 148, 0.42);
   --ifm-button-color: var(--ifm-color-primary);
 }
 
@@ -551,6 +565,17 @@ article.margin-bottom--xl {
     padding-top: 48px;
   }
 
+  .heroPanel h1 {
+    font-size: 1.72rem;
+    line-height: 1.1;
+    word-break: break-all;
+  }
+
+  .heroPanel__lead {
+    max-width: 330px;
+    word-break: break-all;
+  }
+
   .heroPanel__visual {
     max-width: 520px;
   }
@@ -580,7 +605,9 @@ article.margin-bottom--xl {
   }
 
   .heroPanel h1 {
-    font-size: 2.55rem;
+    font-size: 1.72rem;
+    line-height: 1.1;
+    word-break: break-all;
   }
 
   .heroPanel__lead {
