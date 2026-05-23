@@ -57,8 +57,8 @@ export default function Home() {
               <Link className="button button--primary button--lg" to="/docs">
                 进入知识库
               </Link>
-              <Link className="button button--secondary button--lg" to="/blog">
-                阅读博客
+              <Link className="button button--secondary button--lg" to="/docs">
+                查看目录地图
               </Link>
             </div>
             <dl className="signalRail" aria-label="知识库概览">

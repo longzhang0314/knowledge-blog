@@ -17,13 +17,13 @@ npm run write:doc -- mysql "MySQL 索引失效排查" mysql-index-debug
 
 文章会生成到 `docs/mysql/`，然后把生成的 Markdown 加入 `sidebars.js` 中对应分类即可。
 
-## 新增博客文章
+## 新增技术输出
 
 ```bash
 npm run write:post -- "阶段复盘：Redis 缓存一致性" redis-cache-consistency
 ```
 
-文章会生成到 `blog/`，Docusaurus 会自动识别。
+文章会生成到 `docs/output/`，并自动进入知识库侧边栏、标签页和站内搜索。
 
 ## 发布到 GitHub Pages
 

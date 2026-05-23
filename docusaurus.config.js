@@ -42,15 +42,21 @@ const config = {
             `https://github.com/${repository}/edit/main/docs/${docPath}`,
           showLastUpdateAuthor: process.env.CI === 'true',
           showLastUpdateTime: process.env.CI === 'true',
+          sidebarItemsGenerator: async ({defaultSidebarItemsGenerator, ...args}) => {
+            const items = await defaultSidebarItemsGenerator(args);
+            const removeNestedIndex = (sidebarItems) =>
+              sidebarItems
+                .filter((item) => !(item.type === 'doc' && item.id.endsWith('/index')))
+                .map((item) =>
+                  item.type === 'category'
+                    ? {...item, items: removeNestedIndex(item.items || [])}
+                    : item,
+                );
+
+            return removeNestedIndex(items);
+          },
         },
-        blog: {
-          showReadingTime: true,
-          postsPerPage: 8,
-          blogTitle: '技术输出',
-          blogDescription: 'Java 后端学习复盘、面试总结和工程思考',
-          editUrl: ({blogDirPath, blogPath}) =>
-            `https://github.com/${repository}/edit/main/${blogDirPath}/${blogPath}`,
-        },
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -88,13 +94,44 @@ const config = {
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'knowledgeSidebar',
+          type: 'dropdown',
+          label: '核心专题',
           position: 'left',
-          label: '知识库',
+          items: [
+            {label: 'Java 基础', to: '/docs/java-foundation'},
+            {label: 'Spring 与微服务', to: '/docs/spring-cloud'},
+            {label: 'MySQL', to: '/docs/mysql'},
+            {label: 'Redis', to: '/docs/redis'},
+            {label: 'RocketMQ', to: '/docs/rocketmq'},
+            {label: '分布式', to: '/docs/distributed'},
+          ],
         },
-        {to: '/blog', label: '博客', position: 'left'},
-        {to: '/docs/troubleshooting/oom-cpu100', label: '线上排查', position: 'left'},
+        {
+          type: 'dropdown',
+          label: '工程实践',
+          position: 'left',
+          items: [
+            {label: '后端框架与中间件', to: '/docs/backend-frameworks'},
+            {label: '业务系统设计', to: '/docs/business-systems'},
+            {label: '线上排查', to: '/docs/troubleshooting'},
+            {label: '架构设计', to: '/docs/architecture'},
+            {label: '开发工具与环境', to: '/docs/dev-tools'},
+          ],
+        },
+        {
+          type: 'dropdown',
+          label: '成长输出',
+          position: 'left',
+          items: [
+            {label: '知识库总览', to: '/docs'},
+            {label: '技术输出', to: '/docs/output'},
+            {label: '面试复盘', to: '/docs/interview'},
+            {label: '计算机基础', to: '/docs/computer-foundation'},
+            {label: '数据结构与算法', to: '/docs/algorithm'},
+            {label: 'AI 学习', to: '/docs/ai-learning'},
+            {label: '扩展与历史归档', to: '/docs/archive'},
+          ],
+        },
         {
           href: `https://github.com/${repository}`,
           label: 'GitHub',
@@ -129,7 +166,8 @@ const config = {
         {
           title: '输出与归档',
           items: [
-            {label: '博客文章', to: '/blog'},
+            {label: '知识库总览', to: '/docs'},
+            {label: '技术输出', to: '/docs/output'},
             {label: '面试复盘', to: '/docs/interview'},
             {label: '计算机基础', to: '/docs/computer-foundation'},
             {label: '数据结构与算法', to: '/docs/algorithm'},

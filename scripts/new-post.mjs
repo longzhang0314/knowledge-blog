@@ -1,4 +1,4 @@
-import {writeFile} from 'node:fs/promises';
+import {mkdir, writeFile} from 'node:fs/promises';
 import path from 'node:path';
 
 const [title, slug] = process.argv.slice(2);
@@ -10,7 +10,8 @@ if (!title || !slug) {
 }
 
 const today = new Date().toISOString().slice(0, 10);
-const filePath = path.join('blog', `${today}-${slug}.md`);
+const outputDir = path.join('docs', 'output');
+const filePath = path.join(outputDir, `${today}-${slug}.md`);
 const content = `---
 slug: ${slug}
 title: ${title}
@@ -34,5 +35,6 @@ keywords: [${title}, Java 后端]
 记录下一步要补齐的知识或实践。
 `;
 
+await mkdir(outputDir, {recursive: true});
 await writeFile(filePath, content, 'utf8');
 console.log(`Created ${filePath}`);

@@ -3,14 +3,14 @@ slug: start-java-backend-knowledge-blog
 title: 为什么要搭建这个 Java 后端知识库
 description: 把 Java 后端学习、项目复盘和线上排查沉淀为可持续输出的个人技术资产。
 date: 2026-05-21
-authors: [zhanglong]
 tags: [Java, 个人IP, 学习复盘]
 keywords: [Java 后端, 技术博客, 知识库, 个人 IP]
+sidebar_position: 2
 ---
 
-这个站点的目标不是把零散笔记简单搬到网上，而是把学习路径、项目经验、线上问题排查和面试表达整理成一个长期可维护的体系。
+# 为什么要搭建这个 Java 后端知识库
 
-<!-- truncate -->
+这个站点的目标不是把零散笔记简单搬到网上，而是把学习路径、项目经验、线上问题排查和面试表达整理成一个长期可维护的体系。
 
 我会优先沉淀三类内容：
 
