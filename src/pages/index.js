@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
@@ -6,22 +5,28 @@ import Layout from '@theme/Layout';
 const pillars = [
   {
     title: '底层原理',
-    text: 'JVM、并发、MySQL、Redis、RocketMQ，从为什么到怎么落地。',
+    text: 'JVM、并发、MySQL、Redis、RocketMQ，从原理判断到项目落点。',
     to: '/docs/java-foundation',
   },
   {
     title: '线上排查',
-    text: 'OOM、CPU100%、慢 SQL、消息堆积，沉淀可复用的诊断路径。',
+    text: 'Full GC、OOM、CPU100%、慢 SQL，把故障定位沉淀成路径。',
     to: '/docs/troubleshooting/oom-cpu100',
   },
   {
     title: '架构设计',
-    text: '围绕一致性、可用性、扩展性，把项目经验讲成体系。',
+    text: '围绕一致性、稳定性和扩展性，复盘系统设计中的取舍。',
     to: '/docs/architecture/design-methodology',
   },
 ];
 
 const stack = ['Java', 'Spring Boot', 'Spring Cloud', 'MySQL', 'Redis', 'RocketMQ', 'JVM', 'Linux'];
+
+const signals = [
+  {label: '主线', value: 'Java 后端'},
+  {label: '内容', value: '笔记 / 排查 / 复盘'},
+  {label: '更新', value: 'Markdown + Git'},
+];
 
 function PillarCard({title, text, to}) {
   return (
@@ -46,7 +51,7 @@ export default function Home() {
             <p className="eyebrow">Java Backend Notes</p>
             <h1>张龙的 Java 后端知识库</h1>
             <p className="heroPanel__lead">
-              把学习过程、项目经验和线上问题排查持续整理成公开资产，让每一次复盘都能变成下一次表达的底气。
+              持续整理 Java 后端学习笔记、工程复盘和线上问题定位，把经验写成可以检索、复用和继续迭代的公开资产。
             </p>
             <div className="heroPanel__actions">
               <Link className="button button--primary button--lg" to="/docs">
@@ -56,6 +61,14 @@ export default function Home() {
                 阅读博客
               </Link>
             </div>
+            <dl className="signalRail" aria-label="知识库概览">
+              {signals.map((signal) => (
+                <div key={signal.label}>
+                  <dt>{signal.label}</dt>
+                  <dd>{signal.value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
           <div className="heroPanel__visual" aria-label="Java 后端知识地图">
             <img src={imageUrl} alt="Java 后端知识地图" />
@@ -65,7 +78,7 @@ export default function Home() {
         <section className="sectionBand sectionBand--tight">
           <div className="sectionHeader">
             <p className="eyebrow">Knowledge System</p>
-            <h2>先把内容放对位置，再持续写下去</h2>
+            <h2>把知识放进体系里，再持续写下去</h2>
           </div>
           <div className="pillarGrid">
             {pillars.map((pillar) => (
