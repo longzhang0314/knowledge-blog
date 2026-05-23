@@ -132,4 +132,4 @@ Sentinel的环境分为核心库和控制台，其中核心库不依赖任何框
 
     可以看到实时监控数据。
 
-    ![image-20201022150920011](https://tva1.sinaimg.cn/large/0081Kckwly1gjy4nq5m0ej31re0lun5r.jpg)
+    

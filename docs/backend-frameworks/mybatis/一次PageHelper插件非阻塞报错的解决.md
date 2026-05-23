@@ -8,15 +8,15 @@ legacy_source: "框架/Mybatis/一次PageHelper插件非阻塞报错的解决.md
 ---
 #### 问题
 
-![image-20210112112642578](https://tva1.sinaimg.cn/large/008eGmZEly1gmkr1dm33vj31h00su4qp.jpg)
+
 
 #### 定位
 
 真线发现大厅团购单读打印了堆栈异常，但是不会阻塞流程，定位到如下代码：
 
-![image-20210112111037901](https://tva1.sinaimg.cn/large/008eGmZEly1gmkqkmeeq5j31aq094qe0.jpg)
 
-![image-20210112112811756](https://tva1.sinaimg.cn/large/008eGmZEly1gmkr2wcryuj31540bqqah.jpg)
+
+
 
 #### 分析
 
@@ -28,11 +28,11 @@ https://blog.csdn.net/songshuguowang/article/details/98742955
 
 有两篇文章博主的报错最后原因虽然不一致，但都可以抽象成sql语句不规范和PageHelper发生了化学反应，导致发生报错导致的。于是回头看我们自己的代码，猜测是这个where 1导致的（where 1直接在mysql客户端可以正常运行，但就是看着不规范。。）
 
-![image-20210112111307185](https://tva1.sinaimg.cn/large/008eGmZEly1gmkqn7zzqej316l0u01kx.jpg)
+
 
 staging环境debug验证，首先定位到了出错的sql:
 
-![image-20210112112201581](https://tva1.sinaimg.cn/large/008eGmZEly1gmkqwhakc4j31pe0l67io.jpg)
+
 
 ```sql
 select
@@ -65,7 +65,7 @@ select
 
 然后看报错信息，看到报错定位到第3行，有关键字1，基本上确定已经在射程范围之内了。
 
-![image-20210112112303793](https://tva1.sinaimg.cn/large/008eGmZEly1gmkqxnetq2j31w60u0hdt.jpg)
+
 
 ```sql
 net.sf.jsqlparser.parser.ParseException: Encountered " &lt;S_LONG> "1 "" at line 3, column 29.
@@ -96,7 +96,7 @@ Was expecting one of:
 
 有两种方式解决，可以改成where 1=1，也可以改成&lt;where>标签的格式，这两种方式经测试都不会报错。
 
-![image-20210112111225388](https://tva1.sinaimg.cn/large/008eGmZEly1gmkqmk8bz9j319g0u01kx.jpg)
+
 
 - 结论
 

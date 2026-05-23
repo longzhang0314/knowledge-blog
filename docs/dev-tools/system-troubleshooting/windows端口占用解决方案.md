@@ -12,17 +12,17 @@ legacy_source: "系统故障/windows端口占用解决方案.md"
 ```
 netstat -ano
 ```
-![image](https://img-blog.csdn.net/20180626214506161?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3EzNDM1MDk3NDA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
 2. 找到对应的端口对应的PID  输入指令找到对应的进程
 
 ```
  tasklist | findstr "7676"
 ```
-![image](https://img-blog.csdn.net/20180626214556832?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3EzNDM1MDk3NDA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
-![image](https://img-blog.csdn.net/20180626214632670?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3EzNDM1MDk3NDA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
+
 3. 杀掉该进程 再次启动就OK啦
 
 ```
  taskkill /f /t /im java.exe 
 ```
-![image](https://img-blog.csdn.net/20180626214746740?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3EzNDM1MDk3NDA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
